@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "uuidlookup",
+  "version": "${version}",
+  "name": "UUIDLookup",
+  "description": "Allows for looking up the uuid from minecraft usernames or vice versa.",
+  "authors": [
+    "ProjectET"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/uuidlookup/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.projectet.uuidlookup.uuidlookup"
+    ],
+    "client": [],
+    "server": []
+  },
+  "mixins": [
+    "uuidlookup.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*"
+  }
+}

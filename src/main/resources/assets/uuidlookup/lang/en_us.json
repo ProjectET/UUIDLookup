@@ -1,0 +1,5 @@
+{
+  "command.uuidlookup.failure": "Error, input is malformed or uuid does not exist.",
+  "command.uuidlookup.username": "Username from given UUID is: %s",
+  "command.uuidlookup.uuid": "UUID from given Username is: %s"
+}
