@@ -40,9 +40,9 @@ public class LookupCommand {
     private static int lookup(CommandContext<ServerCommandSource> context, UUID uuid) {
         try {
             Text username = copyToClipboard(HTTPGet.getName(uuid));
-            context.getSource().sendFeedback(new TranslatableText("command.uuidlookup.username", username), false);
+            context.getSource().sendFeedback(new TranslatableText("Username from given UUID is: %s", username), false);
         } catch (IOException e) {
-            context.getSource().sendFeedback(new TranslatableText("command.uuidlookup.failure"), false);
+            context.getSource().sendFeedback(new LiteralText("Error, input is malformed or uuid does not exist."), false);
         }
         return 1;
     }
@@ -50,9 +50,9 @@ public class LookupCommand {
     private static int lookup(CommandContext<ServerCommandSource> context, String string) {
         try {
             Text uuid = copyToClipboard(String.valueOf(HTTPGet.getUUID(string)));
-            context.getSource().sendFeedback(new TranslatableText("command.uuidlookup.uuid", uuid), false);
+            context.getSource().sendFeedback(new TranslatableText("UUID from given Username is: %s", uuid), false);
         } catch (IOException e) {
-            context.getSource().sendFeedback(new TranslatableText("command.uuidlookup.failure"), false);
+            context.getSource().sendFeedback(new LiteralText("Error, input is malformed or uuid does not exist."), false);
         }
         return 1;
     }
