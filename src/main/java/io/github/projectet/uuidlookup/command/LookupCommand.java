@@ -17,9 +17,26 @@ import java.util.UUID;
 public class LookupCommand {
     public static void init() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-            LiteralCommandNode<ServerCommandSource> uuidRoot = CommandManager.literal("uuidlookup").then(CommandManager.argument("UUID", UuidArgumentType.uuid()).executes(context -> lookup(context, context.getArgument("UUID", UUID.class)))).build();
-            LiteralCommandNode<ServerCommandSource> nameRoot = CommandManager.literal("uuidlookup").then(CommandManager.argument("Username", StringArgumentType.greedyString()).executes(context -> lookup(context, context.getArgument("Username", String.class)))).build();
-            LiteralCommandNode<ServerCommandSource> Root = CommandManager.literal("uuidlookup").executes(LookupCommand::help).build();
+            LiteralCommandNode<ServerCommandSource> uuidRoot = CommandManager
+                    .literal("uuidlookup")
+                    .then(CommandManager
+                            .argument("UUID", UuidArgumentType.uuid())
+                            .executes(context -> lookup(context, context
+                                    .getArgument("UUID", UUID.class))))
+                    .build();
+
+            LiteralCommandNode<ServerCommandSource> nameRoot = CommandManager
+                    .literal("uuidlookup")
+                    .then(CommandManager
+                            .argument("Username", StringArgumentType.greedyString())
+                            .executes(context -> lookup(context, context
+                                    .getArgument("Username", String.class))))
+                    .build();
+
+            LiteralCommandNode<ServerCommandSource> Root = CommandManager
+                    .literal("uuidlookup")
+                    .executes(LookupCommand::help)
+                    .build();
 
             dispatcher.getRoot().addChild(Root);
             dispatcher.getRoot().addChild(uuidRoot);

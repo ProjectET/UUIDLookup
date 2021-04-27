@@ -1,7 +1,6 @@
 package io.github.projectet.uuidlookup;
 
 import io.github.projectet.uuidlookup.command.LookupCommand;
-import io.github.projectet.uuidlookup.util.HTTPGet;
 import net.fabricmc.api.ModInitializer;
 
 import org.apache.logging.log4j.Level;
@@ -19,7 +18,6 @@ public class uuidlookup implements ModInitializer {
     public void onInitialize() {
         LookupCommand.init();
         log(Level.INFO, "Initializing");
-        //TODO: Initializer
     }
 
     public static void log(Level level, String message){
